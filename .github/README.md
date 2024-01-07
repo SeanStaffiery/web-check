@@ -5,7 +5,7 @@
 <img src="https://i.ibb.co/q1gZN2p/web-check-logo.png" width="96" /><br />
 <b><i>Comprehensive, on-demand open source intelligence for any website</i></b>
 <br />
-<b>🌐 <a href="https://web-check.xyz/">web-check.xyz</a></b><br />
+<b>🌐 <a href="https://web-check.xyz/">webcheck.seanstaffiery.com</a></b><br />
 
 </p>
 
@@ -35,11 +35,11 @@
 ---
 
 ## About
-Get an insight into the inner-workings of a given website: uncover potential attack vectors, analyse server architecture, view security configurations, and learn what technologies a site is using.
+Get an insight into the inner workings of a given website: uncover potential attack vectors, analyze server architecture, view security configurations, and learn what technologies a site is using.
 
-Currently the dashboard will show: IP info, SSL chain, DNS records, cookies, headers, domain info, search crawl rules, page map, server location, redirect ledger, open ports, traceroute, DNS security extensions, site performance, trackers, associated hostnames, carbon footprint. Stay tuned, as I'll add more soon!
+Currently, the dashboard will show IP info, SSL chain, DNS records, cookies, headers, domain info, search crawl rules, page map, server location, redirect ledger, open ports, traceroute, DNS security extensions, site performance, trackers, associated hostnames, carbon footprint. Stay tuned, as I'll add more soon!
 
-The aim is to help you easily understand, optimize and secure your website.
+The aim is to help you easily understand, optimize, and secure your website.
 
 ### Screenshot
 
@@ -638,10 +638,10 @@ This is useful for understanding the history of a site, and how it has changed o
 <img width="300" src="https://i.ibb.co/nkbczgb/Screenshot-from-2023-08-14-22-02-40.png" align="right" />
 
 ###### Description
-This check shows the global rank of the requested site. This is only accurate for websites which are in the top 100 million list. We're using data from the Tranco project (see below), which collates the top sites on the web from Umbrella, Majestic, Quantcast, the Chrome User Experience Report and Cloudflare Radar.
+This check shows the global rank of the requested site. This is only accurate for websites which are in the top 100 million list. We're using data from the Tranco project (see below), which collates the top sites on the web from Umbrella, Majestic, Quantcast, the Chrome User Experience Report, and Cloudflare Radar.
 
 ###### Use Cases
-Knowing a websites overall global rank can be useful for understanding the scale of the site, and for comparing it to other sites. It can also be useful for understanding the relative popularity of a site, and for identifying potential trends.
+Knowing a website's overall global rank can be useful for understanding the scale of the site, and for comparing it to other sites. It can also be useful for understanding the relative popularity of a site, and for identifying potential trends.
 
 ###### Useful Links
 - [Tranco List](https://tranco-list.eu/)
@@ -654,7 +654,7 @@ Knowing a websites overall global rank can be useful for understanding the scale
 <img width="300" src="https://i.ibb.co/M5JSXbW/Screenshot-from-2023-08-26-12-12-43.png" align="right" />
 
 ###### Description
-Checks access to the URL using 10+ of the most popular privacy, malware and parental control blocking DNS servers.
+Checks access to the URL using 10+ of the most popular privacy, malware, and parental control blocking DNS servers.
 
 ###### Use Cases
 
@@ -688,7 +688,7 @@ Knowing if a site is listed as a threat by any of these services can be useful f
 These are combinations of cryptographic algorithms used by the server to establish a secure connection. It includes the key exchange algorithm, bulk encryption algorithm, MAC algorithm, and PRF (pseudorandom function).
 
 ###### Use Cases
-This is important info to test for from a security perspective. Because a cipher suite is only as secure as the algorithms that it contains. If the version of encryption or authentication algorithm in a cipher suite have known vulnerabilities the cipher suite and TLS connection may then vulnerable to a downgrade or other attack
+This is important info to test for from a security perspective. Because a cipher suite is only as secure as the algorithms that it contains. If the version of encryption or authentication algorithm in a cipher suite has known vulnerabilities the cipher suite and TLS connection may then be vulnerable to a downgrade or other attack
 
 ###### Useful Links
 - [sslscan2 CLI](https://github.com/rbsec/sslscan)
@@ -855,9 +855,9 @@ Some checks also require `chromium`, `traceroute` and `dns` to be installed with
 ### Contributing
 
 Contributions of any kind are very welcome, and would be much appreciated.
-For Code of Conduct, see [Contributor Convent](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
+For the Code of Conduct, see [Contributor Convent](https://www.contributor-covenant.org/version/2/1/code_of_conduct/).
 
-To get started, fork the repo, make your changes, add, commit and push the code, then come back here to open a pull request. If you're new to GitHub or open source, [this guide](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3#let-s-make-our-first-pull-request-) or the [git docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) may help you get started, but feel free to reach out if you need any support.
+To get started, fork the repo, make your changes, add, commit, and push the code, then come back here to open a pull request. If you're new to GitHub or open source, [this guide](https://www.freecodecamp.org/news/how-to-make-your-first-pull-request-on-github-3#let-s-make-our-first-pull-request-) or the [git docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/creating-a-pull-request) may help you get started, but feel free to reach out if you need any support.
 
 [![Submit a PR](https://img.shields.io/badge/Submit_a_PR-GitHub-%23060606?style=for-the-badge&logo=github&logoColor=fff)](https://github.com/Lissy93/web-check/compare)
 
@@ -872,7 +872,7 @@ For bugs, please outline the steps needed to reproduce, and include relevant inf
 ### Supporting
 
 The app will remain 100% free and open source.
-But due to the amount of traffic that the hosted instance gets, the lambda function usage is costing about $25/month.
+However due to the amount of traffic that the hosted instance gets, the lambda function usage is costing about $25/month.
 Any help with covering the costs via GitHub Sponsorship would be much appreciated.
 It's thanks to the support of the community that this project is able to be freely available for everyone :)
 
