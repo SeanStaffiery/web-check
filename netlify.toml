@@ -2,7 +2,7 @@
 [build]
   base = "/"
   command = "yarn build"
-  publish = "dist"
+  publish = "dist/client"
   functions = "api"
 
 # Environmental variables and optional secrets
