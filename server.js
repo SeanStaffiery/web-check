@@ -180,7 +180,12 @@ app.use(historyApiFallback({
 }));
 
 // Anything left unhandled (which isn't an API endpoint), return a 404
-app.use((req, res, next) => {
+const errorPageLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minute window
+  max: 20, // limit each IP to 20 requests per windowMs
+  message: "Too many 404 requests from this IP, please try again later."
+});
+app.use(errorPageLimiter, (req, res, next) => {
   if (!req.path.startsWith(`${API_DIR}/`)) {
     res.status(404).sendFile(path.join(__dirname, 'public', 'error.html'));
   } else {
