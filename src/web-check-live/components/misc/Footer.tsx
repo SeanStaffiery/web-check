@@ -1,6 +1,8 @@
 import styled from '@emotion/styled';
-import { Link } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
 import colors from 'web-check-live/styles/colors';
+
+const { Link } = ReactRouterDOM;
 
 const StyledFooter = styled.footer`
   bottom: 0;
