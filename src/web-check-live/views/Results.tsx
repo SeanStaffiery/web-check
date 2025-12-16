@@ -187,6 +187,7 @@ const Results = (props: { address?: string } ): JSX.Element => {
   const [showFilters, setShowFilters] = useState(false);
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [tags, setTags] = useState<string[]>([]);
+  const [addressType, setAddressType] = useState<AddressType>(determineAddressType(address || ''));
 
   const clearFilters = () => {
     setTags([]);
