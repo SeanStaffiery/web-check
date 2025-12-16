@@ -13,9 +13,11 @@ if (searchUrl) {
   Astro.redirect(`/check/${encodeURIComponent(searchUrl)}`);
 }
 
-// Keep the full pathname including /check prefix for React Router
-// React Router has basename="/check" and expects the full path
-const reactPathname = pathname;
+// Strip the /check prefix from pathname for React Router
+// since React Router uses basename="/check"
+const reactPathname = pathname.startsWith('/check') 
+  ? pathname.slice(6) || '/' 
+  : pathname;
 
 ---
 
