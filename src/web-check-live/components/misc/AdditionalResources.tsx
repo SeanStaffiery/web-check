@@ -256,7 +256,30 @@ const resources = [
 ];
 
 const makeLink = (resource: any, scanUrl: string | undefined): string => {
-  return (scanUrl && resource.searchLink) ? resource.searchLink.replaceAll('{URL}', scanUrl.replace(/(https?:\/\/)?/i, '')).replaceAll('{URL_ENCODED}', encodeURIComponent(scanUrl.replace(/(https?:\/\/)?/i, '')).replace(/['\.*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`)).replaceAll('{DOMAIN}', scanUrl.replace(/(https?:\/\/)?(www.)?/i, '').replace(/(\/.*)/i, '')) : resource.link;
+  let link = (scanUrl && resource.searchLink)
+    ? resource.searchLink
+        .replaceAll('{URL}', scanUrl.replace(/(https?:\/\/)?/i, ''))
+        .replaceAll('{URL_ENCODED}', encodeURIComponent(scanUrl.replace(/(https?:\/\/)?/i, '')).replace(/['\.*]/g, (c) => `%${c.charCodeAt(0).toString(16).toUpperCase()}`))
+        .replaceAll('{DOMAIN}', scanUrl.replace(/(https?:\/\/)?(www.)?/i, '').replace(/(\/.*)/i, ''))
+    : resource.link;
+  try {
+    const url = new URL(link, window.location.origin); // base as fallback
+    if (url.protocol === 'https:' || url.protocol === 'http:') {
+      return url.href;
+    }
+  } catch(e) {
+    // Ignore malformed URLs
+  }
+  // Fallback to the base trusted resource.link, or "#" if that is also bad
+  try {
+    const safe = new URL(resource.link, window.location.origin);
+    if (safe.protocol === 'https:' || safe.protocol === 'http:') {
+      return safe.href;
+    }
+  } catch(e) {
+    // Ignore
+  }
+  return "#";
 };
 
 const AdditionalResources = (props: { url?: string }): JSX.Element => {
