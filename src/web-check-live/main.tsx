@@ -6,5 +6,5 @@ const { BrowserRouter, StaticRouter } = ReactRouterDOM;
 export default ({ pathname }: { pathname: string }) => (
     import.meta.env.SSR
         ? <StaticRouter location={pathname}><App/></StaticRouter>
-        : <BrowserRouter><App/></BrowserRouter>
+        : <BrowserRouter basename="/check"><App/></BrowserRouter>
 )
