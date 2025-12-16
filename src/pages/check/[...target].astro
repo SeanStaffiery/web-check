@@ -16,7 +16,7 @@ if (searchUrl) {
 // Strip the /check prefix from pathname for React Router
 // since React Router uses basename="/check"
 const reactPathname = pathname.startsWith('/check') 
-  ? pathname.slice(6) || '/' 
+  ? pathname.slice('/check'.length) || '/' 
   : pathname;
 
 ---
