@@ -23,7 +23,7 @@ export default function App() {
   return (
     <ErrorBoundary>
       <Routes>
-        <Route path="/check" element={<Layout />}>
+        <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
           <Route path="home" element={<Home />} />
           <Route path="about" element={<About />} />

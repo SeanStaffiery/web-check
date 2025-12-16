@@ -13,10 +13,16 @@ if (searchUrl) {
   Astro.redirect(`/check/${encodeURIComponent(searchUrl)}`);
 }
 
+// Strip the /check prefix from pathname for React Router
+// since React Router is now using / as base path
+const reactPathname = pathname.startsWith('/check') 
+  ? pathname.slice(6) || '/' 
+  : pathname;
+
 ---
 
 <BaseLayout>
-  <Main {pathname} client:only="react" />
+  <Main pathname={reactPathname} client:only="react" />
 </BaseLayout>
 
 <script>
