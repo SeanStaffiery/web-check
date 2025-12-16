@@ -153,12 +153,33 @@ const FilterButtons = styled.div`
   }
 `;
 
+// Helper to safely validate/sanitize user-provided URLs
+function getSafeWebUrl(raw: string): string | null {
+  try {
+    const url = new URL(raw, window.location.origin); // Relative URLs resolved
+    if (url.protocol === 'http:' || url.protocol === 'https:') {
+      return url.href;
+    } else {
+      return null;
+    }
+  } catch (e) {
+    return null;
+  }
+}
+// Helper to extract a safe hostname for icon URL (avoids breaking src)
+function getSafeIconHost(raw: string): string {
+  try {
+    const url = new URL(raw, window.location.origin);
+    return url.hostname;
+  } catch (e) {
+    return 'web-check.xyz'; // fallback
+  }
+}
+
 const Results = (props: { address?: string } ): JSX.Element => {
   const startTime = new Date().getTime();
 
   const address = props.address || useParams().urlToScan || '';
-
-  const [ addressType, setAddressType ] = useState<AddressType>('empt');
 
   const [loadingJobs, setLoadingJobs] = useState<LoadingJob[]>(initialJobs);
   const [modalOpen, setModalOpen] = useState(false);
@@ -873,7 +894,16 @@ const Results = (props: { address?: string } ): JSX.Element => {
       <Nav>
       { address && 
         <Heading color={colors.textColor} size="medium">
-          { addressType === 'url' && <a target="_blank" rel="noreferrer" href={address}><img width="32px" src={`https://icon.horse/icon/${makeSiteName(address)}`} alt="" /></a> }
+          { addressType === 'url' && (() => {
+            const safeHref = getSafeWebUrl(address);
+            const safeIconHost = getSafeIconHost(address);
+            return safeHref
+              ? (
+                <a target="_blank" rel="noreferrer" href={safeHref}>
+                  <img width="32px" src={`https://icon.horse/icon/${safeIconHost}`} alt="" />
+                </a>
+              ) : null;
+          })() }
           {makeSiteName(address)}
         </Heading>
         }
