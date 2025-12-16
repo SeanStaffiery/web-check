@@ -8,7 +8,7 @@ export type AddressType = 'ipV4' | 'ipV6' | 'url' | 'err' | 'empt';
 /* Checks if a given string looks like a URL */
 const isUrl = (value: string):boolean => {
   var urlPattern = new RegExp('^(https?:\\/\\/)?'+ // validate protocol
-    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|'+ // validate domain name
+    '((([a-z\\d](?:[a-z\\d-]*[a-z\\d])?)\\.)+[a-z]{2,}|'+ // validate domain name
     '((\\d{1,3}\\.){3}\\d{1,3}))'+ // validate OR ip (v4) address
     '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*'+ // validate port and path
     '(\\?[;&a-z\\d%_.~+=-]*)?'+ // validate query string
