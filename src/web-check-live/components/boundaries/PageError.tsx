@@ -1,5 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled';
+import * as ReactRouterDOM from 'react-router-dom';
+
+const { Link } = ReactRouterDOM;
 
 import colors from 'web-check-live/styles/colors';
 import Heading from 'web-check-live/components/Form/Heading';
@@ -7,7 +10,6 @@ import Footer from 'web-check-live/components/misc/Footer';
 import Nav from 'web-check-live/components/Form/Nav';
 import Button from 'web-check-live/components/Form/Button';
 import { StyledCard } from 'web-check-live/components/Form/Card';
-import { Link } from 'react-router-dom';
 
 interface ErrorBoundaryState {
   hasError: boolean;

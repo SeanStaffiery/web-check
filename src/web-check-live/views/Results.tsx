@@ -1,8 +1,10 @@
 import { useState, useEffect, useCallback, type ReactNode } from 'react';
-import { useParams, useLocation } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
 import styled from '@emotion/styled';
 import { ToastContainer } from 'react-toastify';
 import Masonry from 'react-masonry-css'
+
+const { useParams, useLocation } = ReactRouterDOM;
 
 import colors from 'web-check-live/styles/colors';
 import Heading from 'web-check-live/components/Form/Heading';

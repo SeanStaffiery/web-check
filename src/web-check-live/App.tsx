@@ -1,4 +1,6 @@
-import { Routes, Route, Outlet } from 'react-router-dom';
+import * as ReactRouterDOM from 'react-router-dom';
+
+const { Routes, Route, Outlet } = ReactRouterDOM;
 
 import Home from 'web-check-live/views/Home.tsx';
 import Results from 'web-check-live/views/Results.tsx';
