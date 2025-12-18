@@ -273,7 +273,6 @@ const Results = (props: { address?: string } ): JSX.Element => {
   const urlTypeOnly = ['url'] as AddressType[]; // Many jobs only run with these address types
 
   const api = import.meta.env.PUBLIC_API_ENDPOINT || '/api'; // Where is the API hosted?
-  const apiTimeout = parseInt(import.meta.env.PUBLIC_API_TIMEOUT_LIMIT || '30000', 10); // API request timeout in ms
   
   // Fetch and parse IP address for given URL
   const [ipAddress, setIpAddress] = useMotherHook({
