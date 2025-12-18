@@ -51,7 +51,8 @@ function getAdapter(target) {
     case 'node':
       return nodeAdapter({ mode: 'middleware' });
     default:
-      throw new Error(`Unsupported deploy target: ${target}`);
+      console.warn(`Unknown deploy target "${target}", defaulting to node adapter`);
+      return nodeAdapter({ mode: 'middleware' });
   }
 }
 const adapter = getAdapter(deployTarget);
