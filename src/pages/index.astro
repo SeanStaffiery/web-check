@@ -10,7 +10,7 @@ const isBossServer = import.meta.env.BOSS_SERVER === true || import.meta.env.BOS
 
 const disableEverything = import.meta.env.VITE_DISABLE_EVERYTHING === true || import.meta.env.VITE_DISABLE_EVERYTHING === 'true';
 
-// Redirect strait to /check or /check/:url if running as self-hosted instance
+// Redirect straight to /check or /check/:url if running as self-hosted instance
 if (!isBossServer) {
   const searchUrl = new URLSearchParams(new URL(Astro.request.url).search).get('url');
   const redirectUrl = searchUrl ? `/check/${encodeURIComponent(searchUrl)}` : '/check';
