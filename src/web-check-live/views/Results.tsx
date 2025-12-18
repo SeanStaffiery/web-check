@@ -260,13 +260,13 @@ const Results = (props: { address?: string } ): JSX.Element => {
     return new Promise((resolve) => {
         response.json()
           .then(data => resolve(data))
-          .catch(error => resolve(
-            { error: `Failed to get a valid response 😢\n`
-            + 'This is likely due the target not exposing the required data, '
-            + 'or limitations in imposed by the infrastructure this instance '
-            + 'of Web Check is running on.\n\n'
-            + `Error info:\n${error}`}
-          ));
+          .catch(error => {
+            const errorMsg = `Failed to parse response as JSON.\n`
+              + `This may indicate the API is unavailable or returned an invalid response.\n`
+              + `Status: ${response.status} ${response.statusText}\n`
+              + `Error: ${error.message || error}`;
+            resolve({ error: errorMsg });
+          });
     });
   };
 
@@ -583,16 +583,17 @@ const Results = (props: { address?: string } ): JSX.Element => {
     }),
   });
 
-  /* Cancel remaining jobs after  10 second timeout */
+  /* Cancel remaining jobs after timeout (configurable via env or default to 60 seconds) */
   useEffect(() => {
+    const timeoutMs = parseInt(import.meta.env.PUBLIC_API_TIMEOUT_LIMIT || '60000', 10);
     const checkJobs = () => {
       loadingJobs.forEach(job => {
         if (job.state === 'loading') {
-          updateLoadingJobs(job.name, 'timed-out');
+          updateLoadingJobs(job.name, 'timed-out', 'Request timed out. This may be due to slow network or server load.');
         }
       });
     };
-    const timeoutId = setTimeout(checkJobs, 10000);
+    const timeoutId = setTimeout(checkJobs, timeoutMs);
     return () => {
       clearTimeout(timeoutId);
     };

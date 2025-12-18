@@ -45,16 +45,16 @@ const useMotherOfAllHooks = <ResultType = any>(params: UseIpAddressProps<ResultT
     return fetchRequest()
     .then((res: any) => {
       if (!res) { // No response :(
-        updateLoadingJobs(jobId, 'error', 'No response', reset);
+        updateLoadingJobs(jobId, 'error', 'No response received from server. The API may be unavailable.', reset);
       } else if (res.error) { // Response returned an error message
-        if (res.error.includes("timed-out")) { // Specific handling for timeout errors
+        if (res.error.includes("timed-out") || res.error.includes("timeout")) { // Specific handling for timeout errors
           updateLoadingJobs(jobId, 'timed-out', res.error, reset);
         } else {
           updateLoadingJobs(jobId, 'error', res.error, reset);
         }
       } else if (res.errorType && res.errorMessage) {
         const errorMessage = `${res.errorType}\n${res.errorMessage}\n\n`
-        + `This sometimes occurs on Netlify if using the free plan. You may need to upgrade to use lambda functions`;
+        + `This sometimes occurs on serverless platforms if using the free plan. You may need to upgrade to use lambda functions`;
         updateLoadingJobs(jobId, 'error', errorMessage, reset);
       } else if (res.skipped) { // Response returned a skipped message
         updateLoadingJobs(jobId, 'skipped', res.skipped, reset);
@@ -64,8 +64,11 @@ const useMotherOfAllHooks = <ResultType = any>(params: UseIpAddressProps<ResultT
       }
     })
     .catch((err) => {
-      // Something fucked up
-      updateLoadingJobs(jobId, 'error', err.error || err.message || 'Unknown error', reset);
+      // Handle network errors and timeouts
+      const errorMsg = err.name === 'AbortError' || err.message?.includes('timeout')
+        ? 'Request timed out. Please try again or check your network connection.'
+        : err.error || err.message || 'Unknown error occurred';
+      updateLoadingJobs(jobId, 'error', errorMsg, reset);
       throw err;
     })
   }
