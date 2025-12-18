@@ -33,7 +33,7 @@ const site = unwrapEnvVar('SITE_URL', 'https://web-check.xyz');
 const base = unwrapEnvVar('BASE_URL', '/');
 
 // Should run the app in boss-mode (requires extra configuration)
-const isBossServer = unwrapEnvVar('BOSS_SERVER', false);
+const isBossServer = unwrapEnvVar('BOSS_SERVER', false) === 'true' || unwrapEnvVar('BOSS_SERVER', false) === true;
 
 // Initialize Astro integrations
 const integrations = [svelte(), react(), partytown(), sitemap()];
@@ -71,7 +71,7 @@ const redirects = {
 };
 
 // Skip the marketing homepage for self-hosted users
-if (!isBossServer && isBossServer !== true) {
+if (!isBossServer) {
   redirects['/'] = '/check';
 }
 
