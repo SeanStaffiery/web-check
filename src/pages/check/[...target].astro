@@ -23,7 +23,7 @@ const reactPathname = pathname.startsWith(checkPrefix)
 ---
 
 <BaseLayout>
-  <Main pathname={reactPathname} client:only="react" />
+  <Main pathname={reactPathname} client:load />
 </BaseLayout>
 
 <script>
