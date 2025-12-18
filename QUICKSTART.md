@@ -83,8 +83,8 @@ Web-Check is tested and works on:
 
 ## Next Steps
 
-- See [README.md](.github/README.md) for full documentation
-- Check [ENVIRONMENT_VARIABLES.md](docs/ENVIRONMENT_VARIABLES.md) for API configuration
+- See [README.md](./.github/README.md) for full documentation
+- Check [ENVIRONMENT_VARIABLES.md](./docs/ENVIRONMENT_VARIABLES.md) for API configuration
 - Visit the [GitHub repository](https://github.com/lissy93/web-check) for support
 
 ## Production Deployment
