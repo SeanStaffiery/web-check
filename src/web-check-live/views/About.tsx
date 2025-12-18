@@ -250,17 +250,15 @@ const About = (): JSX.Element => {
         A Docker container is published to <a target="_blank" rel="noreferrer" href="https://hub.docker.com/r/lissy93/web-check">DockerHub</a>
         <br />
         Run this command, then open <code>localhost:3000</code>
-        <pre>docker run -p 3000:3000 lissy93/web-check</pre>
         </p>
+        <pre>docker run -p 3000:3000 lissy93/web-check</pre>
 
         <Heading as="h3" size="small" color={colors.primary}>Option #4 - Manual</Heading>
-        <pre>
-        git clone https://github.com/Lissy93/web-check.git<br />
-        cd web-check # Move into the project directory<br />
-        yarn install # Install dependencies<br />
-        yarn build # Build the app for production<br />
-        yarn serve # Start the app (API and GUI)<br />
-        </pre>
+        <pre>{`git clone https://github.com/Lissy93/web-check.git
+cd web-check # Move into the project directory
+yarn install # Install dependencies
+yarn build # Build the app for production
+yarn serve # Start the app (API and GUI)`}</pre>
 
         <Heading as="h3" size="small" color={colors.primary}>Further Docs</Heading>
         <p>
