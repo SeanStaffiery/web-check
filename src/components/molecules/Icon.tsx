@@ -17,10 +17,9 @@ interface IconProps {
   name: string;
   size?: number;
   color?: string;
-  styles?: string;
 }
 
-const Icon: React.FC<IconProps> = ({ name, size = 1, color = 'currentColor', styles = '' }) => {
+const Icon: React.FC<IconProps> = ({ name, size = 1, color = 'currentColor' }) => {
   if (!iconMap[name]) return null;
   
   return (
