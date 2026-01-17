@@ -2,7 +2,7 @@
   "name": "web-check",
   "type": "module",
   "version": "2.0.2",
-  "homepage": "https://web-check.xyz",
+  "homepage": "https://webcheck.seanstaffiery.com",
   "scripts": {
     "start": "node server",
     "start-pm": "pm2 start server.js -i max",
