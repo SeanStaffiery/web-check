@@ -26,7 +26,7 @@ const deployTarget = unwrapEnvVar('PLATFORM', 'node').toLowerCase();
 const output = unwrapEnvVar('OUTPUT', 'server');
 
 // The FQDN of where the site is hosted (used for sitemaps & canonical URLs)
-const site = unwrapEnvVar('SITE_URL', 'https://web-check.xyz');
+const site = unwrapEnvVar('SITE_URL', 'https://webcheck.seanstaffiery.com');
 
 // The base URL of the site (if serving from a subdirectory)
 const base = unwrapEnvVar('BASE_URL', '/');
