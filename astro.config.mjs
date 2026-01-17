@@ -23,7 +23,7 @@ const unwrapEnvVar = (varName, fallbackValue) => {
 const deployTarget = unwrapEnvVar('PLATFORM', 'node').toLowerCase();
 
 // Determine the output mode (server, hybrid or static)
-const output = unwrapEnvVar('OUTPUT', 'hybrid');
+const output = unwrapEnvVar('OUTPUT', 'server');
 
 // The FQDN of where the site is hosted (used for sitemaps & canonical URLs)
 const site = unwrapEnvVar('SITE_URL', 'https://web-check.xyz');
