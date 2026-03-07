@@ -49,7 +49,7 @@
     "react-simple-maps": "^3.0.0",
     "react-toastify": "^10.0.5",
     "recharts": "^2.12.6",
-    "svelte": "^4.2.19",
+    "svelte": "^5.53.5",
     "traceroute": "^1.0.0",
     "typescript": "^5.4.5",
     "unzipper": "^0.11.5",
@@ -60,7 +60,7 @@
   "devDependencies": {
     "@astrojs/cloudflare": "^10.2.5",
     "@astrojs/netlify": "^5.2.0",
-    "@astrojs/node": "^9.4.1",
+    "@astrojs/node": "^9.5.4",
     "@astrojs/partytown": "^2.1.0",
     "@astrojs/sitemap": "^3.1.4",
     "@astrojs/svelte": "^5.4.0",
