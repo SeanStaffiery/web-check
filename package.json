@@ -25,7 +25,7 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@types/react": "^18.3.1",
     "@types/react-dom": "^18.3.0",
-    "astro": "^6.1.10",
+    "astro": "^6.4.6",
     "axios": "^1.16.0",
     "cheerio": "^1.0.0-rc.12",
     "chrome-aws-lambda": "^10.1.0",
@@ -59,7 +59,7 @@
   },
   "devDependencies": {
     "@astrojs/cloudflare": "^13.1.10",
-    "@astrojs/netlify": "^5.2.0",
+    "@astrojs/netlify": "^7.0.13",
     "@astrojs/node": "^10.0.5",
     "@astrojs/partytown": "^2.1.0",
     "@astrojs/sitemap": "^3.1.4",
